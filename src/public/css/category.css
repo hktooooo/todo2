@@ -1,4 +1,4 @@
-.todo__message {
+.category__message {
     margin: 0 auto;
     padding: 0 20px;
     font-size: 20px;
@@ -10,7 +10,7 @@
     border: solid 1px #badbcc;
 }
 
-.todo__error__message {
+.category__error__message {
     margin: 0 auto;
     padding: 0 20px;
     font-size: 20px;
@@ -22,23 +22,18 @@
     border: solid 1px #f5c2c7;
 }
 
-.todo__content {
-    margin: 0 auto;
+.category__content {
+    margin: 30px auto 0 auto;
     padding: 30px 15px;
     width: 900px;
 }
 
-.create-form .search-form {
+.create-form {
     margin: 0 auto;
     text-align: center;
 }
 
-.title__form {
-    font-size: 22px;
-    margin-bottom: 16px;
-}
-
-.todo__group {
+.category__group {
     display: flex;
     justify-content: space-between;
     margin-bottom: 15px;
@@ -46,9 +41,9 @@
     width: 100%;
 }
 
-.todo__input input {
+.category__input input {
     padding: 10px;
-    width: 450px;
+    width: 650px;
     border: 1.5px solid #404040;
     border-radius: 3px;
     height: 40px;
@@ -57,18 +52,7 @@
     line-height: 15px;
 }
 
-.todo__category select {
-    padding: 10px;
-    width: 160px;
-    border: 1.5px solid #404040;
-    border-radius: 3px;
-    height: 40px;
-    appearance: none;
-    font-size: 15px;
-    line-height: 15px;
-}
-
-.todo__button-submit {
+.category__button-submit {
     padding: 10px;
     width: 160px;
     height: 40px;
@@ -82,14 +66,14 @@
     line-height: 15px;
 }
 
-.todo__list {
+.category__list {
     padding-top: 10px;
     width: 98%;
     height: auto;
     margin: 0 auto;
 }
 
-.todo__heading {
+.category__heading {
     margin-bottom: 10px;
     font-size: 18px;
     line-height: 5px;
@@ -101,11 +85,7 @@
     align-items: center;
 }
 
-.todo__heading p {
-    width: 380px;
-}
-
-.todo__list__row {
+.category__list__row {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -115,7 +95,7 @@
     padding-right: 20px;
 }
 
-.update-form {
+.category__update-form {
     align-items: center;
     width: 655px;
     height: 100%;
@@ -125,14 +105,14 @@
     justify-content: space-between;
 }
 
-.update-form__item-input {
+.category__update-form__item-input {
     height: 40px;
     border: none;
-    width: 500px;
+    width: 680px;
     font-size: 16px;
 }
 
-.todo__item__button-submit {
+.category__item__button-submit {
     display: block;
     width: 60px;
     height: 35px;
@@ -143,10 +123,10 @@
     cursor: pointer;
 }
 
-.todo__item__button-edit {
+.category__item__button-edit {
     background-color: #0000ff;
 }
 
-.todo__item__button-delete {
+.category__item__button-delete {
     background-color: #ff0000;
 }

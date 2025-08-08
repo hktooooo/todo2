@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
 @endsection
 
+<!-- メッセージ -->
 @section('content')
 @if (session('message'))
   <div class="todo__message">
@@ -20,20 +21,59 @@
 <!-- @dump($todos) -->
 
 <div class="todo__content">
-  <form class="create-form" action="/todos" method="POST">
-  @csrf
-    <div class="todo__group">
-      <div class="todo__input">
-        <input type="text" name="content" value="{{ old('content') }}" />
+  <!-- 新規作成欄 -->
+  <div>
+    <h2 class="title__form">新規作成</h2>
+    <form class="create-form" action="/todos" method="POST">
+    @csrf
+      <div class="todo__group">
+        <div class="todo__input">
+          <input type="text" name="content" value="{{ old('content') }}" />
+        </div>
+        <div class="todo__category">
+          <select name="category_id">
+            <option value="">カテゴリ</option>
+            @foreach ($categories as $category)
+              <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
+            @endforeach
+          </select>
+        </div>
+        <div class="todo__button">
+          <button class="todo__button-submit" type="submit">作成</button>
+        </div>
       </div>
-      <div class="todo__button">
-        <button class="todo__button-submit" type="submit">作成</button>
+    </form>
+  </div>
+
+  <!-- 検索欄 -->
+  <div>
+    <h2 class="title__form">Todo検索</h2>
+    <form class="search-form" action="/" method="POST">
+    @csrf
+      <div class="todo__group">
+        <div class="todo__input">
+          <input type="text" name="" value="{{ old('content') }}" />
+        </div>
+        <div class="todo__category">
+          <select name="category_id">
+            <option value="">カテゴリ</option>
+            @foreach ($categories as $category)
+              <option value="{{ $category['name'] }}">{{ $category['name'] }}</option>
+            @endforeach
+          </select>
+        </div>
+        <div class="todo__button">
+          <button class="todo__button-submit" type="submit">検索</button>
+        </div>
       </div>
-    </div>
-  </form>
+    </form>
+  </div>
+
+  <!-- Todoリスト -->
   <div class="todo__list">
     <div class="todo__heading">
-      <h2>Todo</h2>
+      <p>Todo</p>
+      <p>カテゴリ</p>
     </div>
     @foreach ($todos as $todo)
     <div class="todo__list__row">
@@ -43,6 +83,9 @@
         <div class="update__item">
           <input class="update-form__item-input" type="text" name="content" value="{{ $todo['content'] }}">
           <input type="hidden" name="id" value="{{ $todo['id'] }}"> 
+        </div>
+        <div class="update__category">
+          <p class="">{{ $todo['category']['name'] }}</p>
         </div>
         <div class="todo__item__button">
           <button class="todo__item__button-submit todo__item__button-edit" type="submit">更新</button>

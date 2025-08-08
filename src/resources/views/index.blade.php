@@ -1,8 +1,3 @@
-<?php
-  $memos = ["test", "test2", "test3", "test4"];
-  
-?>
-
 @extends('layouts.app')
 
 @section('css')
@@ -22,7 +17,7 @@
   </div>
 @endif
 
-<!-- <p>{{ $todos[0]['content'] }}</p> -->
+<!-- @dump($todos) -->
 
 <div class="todo__content">
   <form class="create-form" action="/todos" method="POST">
@@ -36,12 +31,10 @@
       </div>
     </div>
   </form>
-
   <div class="todo__list">
     <div class="todo__heading">
       <h2>Todo</h2>
     </div>
-    <!-- @dump($todos) -->
     @foreach ($todos as $todo)
     <div class="todo__list__row">
       <form class="update-form" action="/todos/update" method="POST">

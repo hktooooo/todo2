@@ -12,9 +12,13 @@
   </div>
 @endif
 
-@if (count($errors) > 0)
+@if ($errors->any())
   <div class="todo__error__message">
-    {{$errors->first('content')}}
+    <ul>
+      @foreach ($errors->all() as $error)
+      <li>{{ $error }}</li>
+      @endforeach
+    </ul>
   </div>
 @endif
 
@@ -48,17 +52,17 @@
   <!-- 検索欄 -->
   <div>
     <h2 class="title__form">Todo検索</h2>
-    <form class="search-form" action="/" method="POST">
+    <form class="search-form" action="/todos/search" method="GET">
     @csrf
       <div class="todo__group">
         <div class="todo__input">
-          <input type="text" name="" value="{{ old('content') }}" />
+          <input type="text" name="keyword" value="{{ old('keyword') }}" />
         </div>
         <div class="todo__category">
           <select name="category_id">
             <option value="">カテゴリ</option>
             @foreach ($categories as $category)
-              <option value="{{ $category['name'] }}">{{ $category['name'] }}</option>
+              <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
             @endforeach
           </select>
         </div>
